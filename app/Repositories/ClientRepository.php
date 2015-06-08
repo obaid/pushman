@@ -107,7 +107,7 @@ class ClientRepository {
 		}
 
 		$site = $client->site;
-		qlog("Attempting to connect to channel: " . $channel);
+		qlog("Attempting to connect to channel: " . $channel . " with key: " . $key);
 		$channel = Channel::where('name', $channel)
 			->where('site_id', $site->id)
 			->where('public', $key)
