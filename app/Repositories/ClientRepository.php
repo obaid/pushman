@@ -114,7 +114,7 @@ class ClientRepository {
 			->first();
 
 		if (!$channel) {
-			qlog("Verified client attempted to start listening to " . $channel . " with bad key.");
+			qlog("Verified client attempted to start listening to " . $channel . " with bad key {$key}.");
 			$conn->close();
 
 			return false;
