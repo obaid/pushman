@@ -1,14 +1,15 @@
-<?php namespace Pushman\Http\Controllers;
+<?php
+
+namespace Pushman\Http\Controllers;
 
 use Illuminate\Contracts\Auth\Guard;
 use Laracasts\Flash\FlashNotifier;
-use Pushman\Http\Requests;
 use Pushman\Http\Requests\CreateNewUserRequest;
 use Pushman\Http\Requests\LoginRequest;
 use Pushman\User;
 
-class AuthController extends Controller {
-
+class AuthController extends Controller
+{
     /**
      * @var \Illuminate\Contracts\Auth\Guard
      */
@@ -31,7 +32,7 @@ class AuthController extends Controller {
     }
 
     /**
-     * Show the login page
+     * Show the login page.
      *
      * @return \Illuminate\View\View
      */
@@ -43,7 +44,7 @@ class AuthController extends Controller {
     }
 
     /**
-     * Show the register page
+     * Show the register page.
      *
      * @return \Illuminate\View\View
      */
@@ -55,9 +56,10 @@ class AuthController extends Controller {
     }
 
     /**
-     * Process a login request
+     * Process a login request.
      *
      * @param \Pushman\Http\Requests\LoginRequest $request
+     *
      * @return $this|\Illuminate\Http\RedirectResponse
      */
     public function postLogin(LoginRequest $request)
@@ -66,14 +68,14 @@ class AuthController extends Controller {
 
         $user = User::whereUsername($credentials['username'])->first();
 
-        if ( !$user) {
+        if (!$user) {
             $this->flash->error('Unable to load user details.');
 
             return redirect('/auth/login')
                 ->withInput($request->only('email', 'remember'));
         }
 
-        if ( !$user->allowedToLogin()) {
+        if (!$user->allowedToLogin()) {
             $this->flash->error('This account is not active.');
 
             return redirect('/auth/login')
@@ -87,11 +89,12 @@ class AuthController extends Controller {
         }
 
         $this->flash->error('Unable to load user details.');
+
         return redirect()->back();
     }
 
     /**
-     * Process a logout
+     * Process a logout.
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
@@ -103,9 +106,10 @@ class AuthController extends Controller {
     }
 
     /**
-     * Process a register attempt
+     * Process a register attempt.
      *
      * @param \Pushman\Http\Requests\CreateNewUserRequest $request
+     *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function postRegister(CreateNewUserRequest $request)
@@ -116,10 +120,10 @@ class AuthController extends Controller {
             'username' => $request->username,
             'email'    => $request->email,
             'password' => bcrypt($request->password),
-            'status'   => 'active'
+            'status'   => 'active',
         ]);
 
-        if ( !empty($override)) {
+        if (!empty($override)) {
             if ($override === env('APP_KEY')) {
                 $user->status = 'admin';
                 $user->save();
@@ -135,7 +139,7 @@ class AuthController extends Controller {
     }
 
     /**
-     * Get the settings page
+     * Get the settings page.
      *
      * @return \Illuminate\View\View
      */

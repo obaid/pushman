@@ -1,7 +1,9 @@
-<?php namespace Pushman\Http\Requests;
+<?php
 
-class CreateSiteRequest extends Request {
+namespace Pushman\Http\Requests;
 
+class CreateSiteRequest extends Request
+{
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -21,7 +23,7 @@ class CreateSiteRequest extends Request {
     {
         return [
             'name' => 'required|min:3',
-            'url'  => 'required|url'
+            'url'  => 'required|url',
         ];
     }
 }

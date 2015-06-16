@@ -1,7 +1,9 @@
-<?php namespace Pushman\Http\Requests;
+<?php
 
-class PushRequest extends Request {
+namespace Pushman\Http\Requests;
 
+class PushRequest extends Request
+{
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -23,7 +25,7 @@ class PushRequest extends Request {
             'private' => 'required|size:60',
             'channel' => 'string|min:3',
             'event'   => 'required|string|min:3',
-            'payload' => 'string'
+            'payload' => 'string',
         ];
     }
 }

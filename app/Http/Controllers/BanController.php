@@ -1,11 +1,13 @@
-<?php namespace Pushman\Http\Controllers;
+<?php
+
+namespace Pushman\Http\Controllers;
 
 use Pushman\Ban;
 use Pushman\Http\Requests\EditBanRequest;
 use Pushman\Site;
 
-class BanController extends Controller {
-
+class BanController extends Controller
+{
     public function __construct()
     {
         $this->middleware('auth');
@@ -38,4 +40,4 @@ class BanController extends Controller {
         $ban->active = $request->active;
         $ban->save();
     }
-} 
+}

@@ -1,20 +1,19 @@
-<?php namespace Pushman\Services;
+<?php
+
+namespace Pushman\Services;
 
 use Ratchet\ConnectionInterface;
 
-class TokenHandler {
-
+class TokenHandler extends DataHandler
+{
     public static function getToken(ConnectionInterface $conn)
     {
-        $url = $conn->wrappedConn->WebSocket->request->getUrl();
-        $tokenFinder = "?token=";
-        $tokenPos = strpos($url, $tokenFinder);
-        if ($tokenPos === false) {
+        $data = parent::getData($conn);
+        $token = $data['token'];
+
+        if (!isset($token) or empty($token)) {
             return false;
         }
-
-        $strLength = $tokenPos + strlen($tokenFinder);
-        $token = substr($url, $strLength);
 
         return $token;
     }

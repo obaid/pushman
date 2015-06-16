@@ -1,7 +1,9 @@
-<?php namespace Pushman\Http\Requests;
+<?php
 
-class CreateChannelRequest extends Request {
+namespace Pushman\Http\Requests;
 
+class CreateChannelRequest extends Request
+{
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -22,7 +24,7 @@ class CreateChannelRequest extends Request {
         return [
             'name'            => 'required|min:3',
             'refreshes'       => 'required|in:yes,no',
-            'max_connections' => 'required|integer'
+            'max_connections' => 'required|integer',
         ];
     }
 }

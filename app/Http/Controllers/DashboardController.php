@@ -1,13 +1,11 @@
-<?php namespace Pushman\Http\Controllers;
+<?php
+
+namespace Pushman\Http\Controllers;
 
 use Illuminate\Contracts\Auth\Guard;
-use Pushman\Http\Requests;
-use Pushman\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
-
-class DashboardController extends Controller {
-
+class DashboardController extends Controller
+{
     /**
      * @var \Illuminate\Contracts\Auth\Guard
      */
@@ -31,5 +29,4 @@ class DashboardController extends Controller {
     {
         return view('dashboard');
     }
-
 }

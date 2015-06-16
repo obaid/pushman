@@ -1,9 +1,11 @@
-<?php namespace Pushman\Http;
+<?php
+
+namespace Pushman\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
-class Kernel extends HttpKernel {
-
+class Kernel extends HttpKernel
+{
     /**
      * The application's global HTTP middleware stack.
      *
@@ -17,7 +19,7 @@ class Kernel extends HttpKernel {
         'Illuminate\View\Middleware\ShareErrorsFromSession',
         'Pushman\Http\Middleware\VerifyCsrfToken',
         'Pushman\Http\Middleware\AllowCrossDomainRequest',
-        'Pushman\Http\Middleware\SetLocale'
+        'Pushman\Http\Middleware\SetLocale',
     ];
 
     /**
@@ -32,5 +34,4 @@ class Kernel extends HttpKernel {
         'admin'      => 'Pushman\Http\Middleware\Admin',
         'ownership'  => 'Pushman\Http\Middleware\MustOwnResource',
     ];
-
 }

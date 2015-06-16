@@ -1,7 +1,9 @@
-<?php namespace Pushman\Http\Requests;
+<?php
 
-class SettingsRequest extends Request {
+namespace Pushman\Http\Requests;
 
+class SettingsRequest extends Request
+{
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -9,7 +11,7 @@ class SettingsRequest extends Request {
      */
     public function authorize()
     {
-        if ( !user()) {
+        if (!user()) {
             return false;
         }
 
@@ -24,7 +26,7 @@ class SettingsRequest extends Request {
     public function rules()
     {
         return [
-            'locale' => 'required|in:en,fr'
+            'locale' => 'required|in:en,fr',
         ];
     }
 }

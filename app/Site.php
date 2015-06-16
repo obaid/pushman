@@ -1,19 +1,21 @@
-<?php namespace Pushman;
+<?php
+
+namespace Pushman;
 
 use Illuminate\Database\Eloquent\Model;
 use Pushman\Interfaces\Ownable;
 use Pushman\Repositories\ChannelRepository;
 
-class Site extends Model implements Ownable {
-
+class Site extends Model implements Ownable
+{
     /**
-     * Hidden fields
+     * Hidden fields.
      *
      * @var array
      */
     protected $hidden = ['private'];
     /**
-     * Fillable fields
+     * Fillable fields.
      *
      * @var array
      */
@@ -122,6 +124,7 @@ class Site extends Model implements Ownable {
      * Checks to see if this resources is owned by a user.
      *
      * @param \Pushman\User $user
+     *
      * @return mixed
      */
     public function ownedBy(User $user)

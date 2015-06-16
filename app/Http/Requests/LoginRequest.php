@@ -1,7 +1,9 @@
-<?php namespace Pushman\Http\Requests;
+<?php
 
-class LoginRequest extends Request {
+namespace Pushman\Http\Requests;
 
+class LoginRequest extends Request
+{
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -21,7 +23,7 @@ class LoginRequest extends Request {
     {
         return [
             'username' => 'required',
-            'password' => 'required'
+            'password' => 'required',
         ];
     }
 }

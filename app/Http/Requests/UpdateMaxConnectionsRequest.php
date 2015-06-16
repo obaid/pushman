@@ -1,7 +1,9 @@
-<?php namespace Pushman\Http\Requests;
+<?php
 
-class UpdateMaxConnectionsRequest extends Request {
+namespace Pushman\Http\Requests;
 
+class UpdateMaxConnectionsRequest extends Request
+{
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -22,7 +24,7 @@ class UpdateMaxConnectionsRequest extends Request {
         return [
             'name'  => 'required',
             'value' => 'required|integer',
-            'pk'    => 'required|integer'
+            'pk'    => 'required|integer',
         ];
     }
 }

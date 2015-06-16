@@ -1,7 +1,9 @@
-<?php namespace Pushman\Exceptions;
+<?php
+
+namespace Pushman\Exceptions;
 
 use Exception;
 
-class UserIsBannedException extends Exception {
-
-} 
+class UserIsBannedException extends Exception
+{
+}

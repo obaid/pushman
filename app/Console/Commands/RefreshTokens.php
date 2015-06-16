@@ -1,14 +1,16 @@
-<?php namespace Pushman\Console\Commands;
+<?php
+
+namespace Pushman\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Pushman\Channel;
 
-class RefreshTokens extends Command implements SelfHandling {
+class RefreshTokens extends Command implements SelfHandling
+{
+    protected $description = 'Resets every token for every auto refresh channel.';
 
-    protected $description = "Resets every token for every auto refresh channel.";
-
-    protected $name = "pushman:refresh";
+    protected $signature = 'pushman:refresh';
 
     /**
      * Execute the command.
@@ -24,4 +26,4 @@ class RefreshTokens extends Command implements SelfHandling {
             $channel->save();
         }
     }
-} 
+}

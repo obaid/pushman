@@ -1,10 +1,12 @@
-<?php namespace Pushman;
+<?php
+
+namespace Pushman;
 
 use Illuminate\Database\Eloquent\Model;
 use Pushman\Interfaces\Ownable;
 
-class Channel extends Model implements Ownable {
-
+class Channel extends Model implements Ownable
+{
     /**
      * Protected fields hidden from JSON output.
      *
@@ -63,7 +65,7 @@ class Channel extends Model implements Ownable {
         $count = 0;
         $counted_users = [];
         foreach ($this->subscribers as $subscriber) {
-            if ( !in_array($subscriber->id, $counted_users)) {
+            if (!in_array($subscriber->id, $counted_users)) {
                 $count++;
                 $counted_users[] = $subscriber->id;
             }
@@ -90,6 +92,7 @@ class Channel extends Model implements Ownable {
      * Checks to see if this resources is owned by a user.
      *
      * @param \Pushman\User $user
+     *
      * @return mixed
      */
     public function ownedBy(User $user)

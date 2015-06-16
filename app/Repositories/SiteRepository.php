@@ -1,10 +1,12 @@
-<?php namespace Pushman\Repositories;
+<?php
+
+namespace Pushman\Repositories;
 
 use Pushman\Exceptions\InvalidSiteException;
 use Pushman\Site;
 
-class SiteRepository {
-
+class SiteRepository
+{
     public static function buildSite($name, $url, $userid)
     {
         $url = rtrim($url, '/');

@@ -1,7 +1,9 @@
-<?php namespace Pushman\Exceptions;
+<?php
+
+namespace Pushman\Exceptions;
 
 use Exception;
 
-class InvalidChannelException extends Exception {
-
-} 
+class InvalidChannelException extends Exception
+{
+}
